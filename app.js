@@ -23,22 +23,23 @@ var bot = new builder.UniversalBot(connector, async function (session) {
     });
 }).set('storage', inMemoryStorage);
 
-bot.dialog('send', function (session) {
-    console.log('\n\n**** Send Dialog Triggered | app.js > send dialog');
-    console.log('**** Attempting to send | app.js > send dialog');
+bot.dialog('send', async function (session) {
+    console.log(`\n\n**** DIALOG Triggered | app.js send dialog\n     ${ new Date().toISOString() }`);
     
     session.send('I AM SENDING A MESSAGE');
 
-    console.log('**** Send function called | app.js > send dialog');
+    console.log(`**** DIALOG Ended after calling send() | app.js send dialog\n     ${ new Date().toISOString() }`);
 }).triggerAction({ matches: [/send/,/test/]});
 
 bot.use({
     botbuilder: function (session, next) {
-        console.warn('**** Botbuilder() Middleware called | app.js > bot.use()');
+        console.log(`**** MIDDLEWARE Botbuilder() called | app.js bot.use()\n     ${ new Date().toISOString() }`);
         next();
     },
-    send: function (event, next) {
-        console.warn('**** Send() Middleware called | app.js > bot.use()');
+    send: async function (event, next) {
+        console.log(`**** MIDDLEWARE Send() called | app.js bot.use()\n     ${ new Date().toISOString() }`);
         next();
     }
 });
+
+

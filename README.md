@@ -1,6 +1,6 @@
 # Overview
 
-This is a simple proof-of-concept to show that `bot.use()...send()` middleware is called before a request is actually sent.
+This is a simple proof-of-concept to show that `bot.use()...send()` **middleware is called before a request is actually sent**.
 
 # Install
 
@@ -20,11 +20,15 @@ This is the console output of this bot:
 
 Notice that:
 
-1. A message is sent from the dialog
-2. The middleware is called, *THEN*
-3. ChatConnector sends the message
-4. Request sends the message
-5. Request receives the response
+(1) A message is sent from the dialog
+
+(3) The middleware is called, *THEN*
+
+(4) ChatConnector sends the message
+
+(6) Request sends the message
+
+(7) Request receives the response
 
 # How it Works
 
