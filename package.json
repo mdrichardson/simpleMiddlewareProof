@@ -1,0 +1,12 @@
+{
+    "name": "core-basic-multidialog",
+    "version": "1.0.0",
+    "scripts": {
+        "start": "node app.js"
+    },
+    "dependencies": {
+        "botbuilder": "^3.13.1",
+        "dotenv-extended": "^2.0.0",
+        "restify": "^4.3.0"
+    }
+}
