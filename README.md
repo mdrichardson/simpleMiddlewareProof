@@ -58,8 +58,8 @@ Log when done sending messages:
 
 Log all messages sent (under `Request.prototype.start()`):
 
-![](/imates/requestSend.PNG)
+![](/images/requestSend.PNG)
 
 Log all message responses:
 
-![](/images/requestResponse.js)
+![](/images/requestResponse.PNG)
