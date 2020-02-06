@@ -16,7 +16,7 @@ Test in Emulator. Type "send" or "test" to have the bot send a message.
 
 This is the console output of this bot:
 
-![](/images/console.PNG)
+![](/images/console2.PNG)
 
 Notice that:
 
@@ -38,32 +38,32 @@ This just logs various events to the console in order to see what gets called wh
 
 Log when the dialog gets started:
 
-![](/images/appDialog.PNG)
+![](/images/appDialog   )
 
 Log when middleware is triggered:
 
-![](/images/appMiddleware.PNG)
+![](/images/appMiddleware2.PNG)
 
 ## ChatConnector.js
 
 Log all incoming messages:
 
-![](/images/connectorListen.PNG)
+![](/images/connectorListen2.PNG)
 
 Log when first attempting to send messages:
 
-![](/images/connectorPost.PNG)
+![](/images/connectorPost2.PNG)
 
 Log when done sending messages:
 
-![](/images/connectorSend.PNG)
+![](/images/connectorSend2.PNG)
 
 ## request.js
 
 Log all messages sent (under `Request.prototype.start()`):
 
-![](/images/requestSend.PNG)
+![](/images/requestSend2.PNG)
 
 Log all message responses:
 
-![](/images/requestResponse.PNG)
+![](/images/requestResponse2.PNG)
