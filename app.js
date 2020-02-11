@@ -35,7 +35,9 @@ bot.use({
                 const data = JSON.stringify({ conversation: activity.address.conversation, id: activity.address.id, user: activity.address.user });
                 console.log(`**** MIDDLEWARE Botbuilder() called | app.js bot.use() | ${ data }`);
             }
-        } catch (err) { }
+        } catch (err) {
+            console.log(`**** [ERROR] MIDDLEWARE Botbuilder() called | app.js bot.use() | ${ JSON.stringify(session) }`);
+        }
         next();
     },
     send: async function (event, next) {
@@ -45,7 +47,9 @@ bot.use({
                 const data = JSON.stringify({ conversation: activity.conversation, id: activity.id, recipient: activity.recipient, user: activity.user });
                 console.log(`**** MIDDLEWARE Send() called | app.js bot.use() | ${ data }`);
             }
-        } catch (err) { }
+        } catch (err) { 
+            console.log(`**** [ERROR] MIDDLEWARE Send() called | app.js bot.use() | ${ JSON.stringify(event) }`); 
+        }
         next();
     }
 });
