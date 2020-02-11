@@ -23,21 +23,29 @@ var bot = new builder.UniversalBot(connector, async function (session) {
     });
 }).set('storage', inMemoryStorage);
 
-bot.dialog('send', async function (session) {
-    console.log(`\n\n**** DIALOG Triggered | app.js send dialog\n     ${ new Date().toISOString() }`);
-    
+bot.dialog('send', async function (session) {    
     session.send('I AM SENDING A MESSAGE');
-
-    console.log(`**** DIALOG Ended after calling send() | app.js send dialog\n     ${ new Date().toISOString() }`);
 }).triggerAction({ matches: [/send/,/test/]});
 
 bot.use({
     botbuilder: function (session, next) {
-        console.log(`**** MIDDLEWARE Botbuilder() called | app.js bot.use()\n     ${ new Date().toISOString() }`);
+        try {
+            const activity = session.message;
+            if (activity.type === 'message') {
+                const data = JSON.stringify({ conversation: activity.address.conversation, id: activity.address.id, user: activity.address.user });
+                console.log(`**** MIDDLEWARE Botbuilder() called | app.js bot.use() | ${ data }`);
+            }
+        } catch (err) { }
         next();
     },
     send: async function (event, next) {
-        console.log(`**** MIDDLEWARE Send() called | app.js bot.use()\n     ${ new Date().toISOString() }`);
+        try {
+            const activity = event.address;
+            if (activity.type === 'message') {
+                const data = JSON.stringify({ conversation: activity.conversation, id: activity.id, recipient: activity.recipient, user: activity.user });
+                console.log(`**** MIDDLEWARE Send() called | app.js bot.use() | ${ data }`);
+            }
+        } catch (err) { }
         next();
     }
 });
