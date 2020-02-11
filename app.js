@@ -32,7 +32,7 @@ bot.use({
         try {
             const activity = session.message;
             if (activity.type === 'message') {
-                const data = JSON.stringify({ conversation: activity.address.conversation, id: activity.address.id, user: activity.address.user });
+                const data = JSON.stringify({ conversation: activity.address.conversation });
                 console.log(`**** MIDDLEWARE Botbuilder() called | app.js bot.use() | ${ data }`);
             }
         } catch (err) {
@@ -44,7 +44,7 @@ bot.use({
         try {
             const activity = event.address;
             if (activity.type === 'message') {
-                const data = JSON.stringify({ conversation: activity.conversation, id: activity.id, recipient: activity.recipient, user: activity.user });
+                const data = JSON.stringify({ conversation: activity.conversation });
                 console.log(`**** MIDDLEWARE Send() called | app.js bot.use() | ${ data }`);
             }
         } catch (err) { 
